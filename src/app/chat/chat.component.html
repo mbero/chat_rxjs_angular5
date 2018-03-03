@@ -1,0 +1,12 @@
+<div class="list-messages" id="listMessages">
+  <ul>
+        <li class="text" *ngFor="let message of messages | async">
+          
+            <app-message [message]="message"></app-message>
+          </li>
+  
+  </ul>
+
+  <app-message-sender></app-message-sender>
+</div>
+

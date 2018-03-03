@@ -4,5 +4,17 @@
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  firebase: {
+    apiKey: 'AIzaSyC7KZoIH3CQ18ZlJheL1L7Phg2J6-lgQHI',
+    authDomain: 'rxturbomegachat.firebaseapp.com',
+    databaseURL: 'https://rxturbomegachat.firebaseio.com',
+    projectId: 'rxturbomegachat',
+    storageBucket: 'rxturbomegachat.appspot.com',
+    messagingSenderId: '793632436872'
+  }
 };
+
+
+
+

@@ -1,0 +1,14 @@
+<form [formGroup]="form" (ngSubmit)="formSubmitSubject.next()">
+
+  
+  <div class="new-message" id="newMessage">
+    <input type="text" formControlName="name">
+    <input type="text" formControlName="text">
+  </div>
+
+  <div>
+    <button type="reset" >Reset</button>
+    <button type="submit" [disabled]="form.invalid">{{ submitButtonText }}</button>
+  </div>
+
+</form>
