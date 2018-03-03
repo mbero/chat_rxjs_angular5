@@ -22,4 +22,9 @@ describe('MessageSenderComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should checkIfURL', () => {
+    //expect(component.checkIfURL("")).toEqual());
+  });
+
 });

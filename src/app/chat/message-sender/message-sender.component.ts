@@ -24,9 +24,27 @@ export class MessageSenderComponent {
     this.formSubmitSubject
       .filter(() => this.form.valid)
       .map(() => this.form.value)
+      .map(element => {
+        if (this.checkIfURL(element.text)) {
+          element.isURL = true;
+          return element;
+        } else {
+          return element;
+        }
+      }
+      )
       .subscribe(this.formSubmit);
   }
 
 
+  checkIfURL(element: string): boolean {
+    let isURL: boolean = false
+    var expression = /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi;
+    var regex = new RegExp(expression);
 
+    if (element.match(regex)) {
+      isURL = true;
+    }
+    return isURL;
+  }
 }
