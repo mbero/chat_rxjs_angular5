@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { FormControlName } from '@angular/forms';
+import { CommonsService } from '../../services/commons.service';
 @Component({
   selector: 'app-message-sender',
   templateUrl: './message-sender.component.html',
@@ -14,7 +15,7 @@ export class MessageSenderComponent {
   @Output() formSubmit = new EventEmitter();
   formSubmitSubject = new Subject();
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder, private commonsService: CommonsService) {
     this.form = formBuilder.group({
       name: ['', Validators.required],
       text: ['', Validators.required],
@@ -25,9 +26,8 @@ export class MessageSenderComponent {
       .filter(() => this.form.valid)
       .map(() => this.form.value)
       .map(element => {
-        if (this.checkIfURL(element.text)==true) {
+        if (this.commonsService.checkIfURL(element.text) == true) {
           element.isURL = true;
-          console.log('Element is URL');
           return element;
         } else {
           return element;
@@ -35,17 +35,5 @@ export class MessageSenderComponent {
       }
       )
       .subscribe(this.formSubmit);
-  }
-
-
-  checkIfURL(element: string): boolean {
-    let isURL: boolean = false
-    var expression = /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi;
-    var regex = new RegExp(expression);
-
-    if (element.match(regex)) {
-      isURL = true;
-    }
-    return isURL;
   }
 }

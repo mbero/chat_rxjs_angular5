@@ -2,11 +2,9 @@
   <div class="col-sm-2">
     <b>{{message.name}}</b>
   </div>
-  <div *ngIf="message.isURL!=true" class="col-sm-6"> {{message.text}}</div>
-
-  <div *ngIf="message.isURL==true" class="col-sm-6"> 
-      <img [src]="message.text">  
-  </div>
+      
+  <img src="{{message.name}}" class="img-fluid" alt="Responsive image">
+  
   
   
 </div>

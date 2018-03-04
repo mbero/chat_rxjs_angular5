@@ -23,8 +23,4 @@ describe('MessageSenderComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should checkIfURL', () => {
-    //expect(component.checkIfURL("")).toEqual());
-  });
-
 });
