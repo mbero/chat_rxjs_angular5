@@ -10,21 +10,8 @@ import { AngularFirestore } from 'angularfire2/firestore';
 export class ChatComponent implements OnInit {
 
   messages: Observable<any[]>;
-  //messages: Array<any>;
   constructor(private db: AngularFirestore) {
-    //this.messages = new Array<any>();
-
-    /*
-     db.collection('Chat').valueChanges().subscribe(response =>{
-      for(let currentMessage of response){
-        this.messages.push(currentMessage);
-      }  
-      console.log(response);
-     });
-     */
-
     this.messages = db.collection('Chat').valueChanges();
-
   }
   ngOnInit() {
 

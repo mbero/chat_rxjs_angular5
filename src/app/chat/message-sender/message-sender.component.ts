@@ -25,8 +25,9 @@ export class MessageSenderComponent {
       .filter(() => this.form.valid)
       .map(() => this.form.value)
       .map(element => {
-        if (this.checkIfURL(element.text)) {
+        if (this.checkIfURL(element.text)==true) {
           element.isURL = true;
+          console.log('Element is URL');
           return element;
         } else {
           return element;
